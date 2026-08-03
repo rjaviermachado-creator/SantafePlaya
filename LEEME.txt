@@ -3,318 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Santafe Playa | Comunidad GTA V Roleplay</title>
-<meta name="description" content="Noticias, fotos y comunidad del clan Santafe Playa en FiveM.">
+<title>Santafe Playa | Portal de Los Santos</title>
+<meta name="description" content="Portal del clan Santafe Playa: noticias, eventos, comunidad, negocios, empleos y fotografías de GTA V Roleplay.">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 :root{
-  --bg:#0a0d12;
-  --panel:#121720;
-  --panel2:#181f2a;
-  --text:#f7f5ef;
-  --muted:#a8afb9;
-  --orange:#ff5a24;
-  --yellow:#ffc247;
-  --line:rgba(255,255,255,.12);
+ --bg:#080b10;--panel:#111722;--panel2:#171e29;--text:#f7f5ef;--muted:#a6aeba;
+ --orange:#ff5824;--yellow:#ffc247;--green:#46dc82;--cyan:#2acde0;--line:rgba(255,255,255,.12)
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:Montserrat,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-a{text-decoration:none;color:inherit}
-img{display:block;width:100%}
-header{
-  position:sticky;top:0;z-index:30;
-  height:72px;padding:0 6vw;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(8,11,15,.94);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line);
-}
-.logo{font-weight:900;letter-spacing:.09em}
-.logo b{color:var(--orange)}
-nav{display:flex;gap:24px;font-size:.75rem;font-weight:800;text-transform:uppercase}
-nav a:hover{color:var(--yellow)}
-.menu{display:none;background:none;border:0;color:#fff;font-size:1.7rem}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#080b10,#0d1118 55%,#080b10);color:var(--text);font-family:Montserrat,Arial,sans-serif}
+a{text-decoration:none;color:inherit}button,input,textarea{font:inherit}img{width:100%;display:block}
+.topbar{height:4px;background:linear-gradient(90deg,var(--orange),var(--yellow),var(--cyan));position:fixed;inset:0 0 auto;z-index:100}
+header{position:fixed;top:4px;left:0;right:0;height:72px;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(7,10,14,.95);backdrop-filter:blur(13px);border-bottom:1px solid var(--line)}
+.logo{font-weight:900;letter-spacing:.09em}.logo b{color:var(--orange)}
+nav{display:flex;gap:20px;font-size:.7rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
+nav a:hover{color:var(--yellow)}.menu{display:none;border:0;background:none;color:#fff;font-size:1.7rem}
+.newsbar{position:fixed;top:76px;left:0;right:0;height:34px;z-index:80;background:#111722;border-bottom:1px solid var(--line);overflow:hidden;display:flex;align-items:center}
+.newsbar b{height:100%;display:flex;align-items:center;background:var(--orange);padding:0 15px;font-size:.65rem;letter-spacing:.1em;white-space:nowrap}
+.marquee{white-space:nowrap;animation:move 25s linear infinite;font-size:.68rem;font-weight:700;color:#d7dbe1}
+@keyframes move{from{transform:translateX(100vw)}to{transform:translateX(-100%)}}
 
-.hero{
-  min-height:72vh;
-  position:relative;
-  display:flex;align-items:flex-end;
-  padding:90px 7vw 65px;
-  background:
-    linear-gradient(90deg,rgba(5,7,10,.92),rgba(5,7,10,.45)),
-    linear-gradient(0deg,#0a0d12,transparent 40%),
-    url("assets/persecucion.png") center/cover no-repeat;
-}
-.hero-content{max-width:760px}
-.kicker{
-  display:inline-block;padding:8px 11px;
-  background:var(--orange);
-  font-size:.68rem;font-weight:900;letter-spacing:.15em;
-}
+.hero{min-height:92vh;padding:145px 7vw 75px;position:relative;display:flex;align-items:flex-end;background:linear-gradient(90deg,rgba(5,7,10,.94),rgba(5,7,10,.42)),linear-gradient(0deg,#080b10,transparent 35%),url("assets/persecucion.png") center/cover}
+.hero-content{max-width:770px}.tag{display:inline-block;padding:8px 11px;background:var(--orange);font-size:.65rem;font-weight:900;letter-spacing:.14em}
 h1,h2,h3{font-family:Anton,Arial,sans-serif;font-weight:400;margin:0}
-h1{font-size:clamp(4.8rem,12vw,9rem);line-height:.82;margin:18px 0}
-h1 span{display:block;color:var(--orange)}
-.hero p{max-width:650px;color:#e0e2e6;line-height:1.8}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.btn{
-  display:inline-block;padding:15px 21px;
-  border:1px solid var(--line);
-  font-size:.76rem;font-weight:900;letter-spacing:.09em;
-  transition:.25s;
-}
-.btn.primary{background:var(--orange);border-color:var(--orange)}
-.btn:hover{transform:translateY(-3px)}
-main section{padding:90px 7vw}
-.heading{max-width:780px;margin:0 auto 45px;text-align:center}
-.heading small{color:var(--yellow);font-weight:900;letter-spacing:.18em}
-.heading h2{font-size:clamp(3rem,7vw,5.5rem);line-height:.95;margin:10px 0}
-.heading p{color:var(--muted);line-height:1.75}
-
-.featured{
-  display:grid;
-  grid-template-columns:1.35fr 1fr;
-  gap:18px;
-}
-.card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  overflow:hidden;
-}
-.card img{height:100%;object-fit:cover}
-.card-body{padding:24px}
-.card small{color:var(--yellow);font-size:.68rem;font-weight:900;letter-spacing:.12em}
-.card h3{font-size:2rem;margin:10px 0}
-.card p{color:var(--muted);line-height:1.7;font-size:.88rem}
-.card.big{display:grid;grid-template-columns:1.2fr 1fr;min-height:360px}
-.side-list{display:grid;gap:18px}
-.side-list .card{display:grid;grid-template-columns:170px 1fr}
-.side-list .card img{height:100%;min-height:170px}
-
-.community{
-  background:#0d1117;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-.post-box{
-  max-width:900px;margin:auto;
-  background:var(--panel);
-  border:1px solid var(--line);
-  padding:24px;
-}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-input,textarea{
-  width:100%;padding:14px 15px;
-  background:#0d1219;color:#fff;
-  border:1px solid var(--line);
-  font:inherit;
-}
-textarea{min-height:120px;resize:vertical;grid-column:1/-1}
-.upload{
-  grid-column:1/-1;
-  padding:18px;
-  border:1px dashed rgba(255,255,255,.24);
-  color:var(--muted);
-  text-align:center;
-}
-.notice{
-  margin-top:14px;
-  color:var(--muted);
-  font-size:.78rem;
-  line-height:1.6;
-}
-.fake-feed{
-  max-width:900px;margin:24px auto 0;
-  display:grid;gap:14px;
-}
-.post{
-  background:var(--panel);
-  border:1px solid var(--line);
-  padding:20px;
-}
-.post-head{display:flex;justify-content:space-between;gap:20px;margin-bottom:10px}
-.post-head strong{color:var(--yellow)}
-.post-head span{color:var(--muted);font-size:.75rem}
-.post p{color:#d8dbe1;line-height:1.7}
-.post img{margin-top:14px;max-height:420px;object-fit:cover}
-
-.gallery{
-  display:grid;
-  grid-template-columns:1.4fr 1fr;
-  grid-template-rows:1fr 1fr;
-  gap:16px;
-}
-.gallery figure{margin:0;position:relative;overflow:hidden;border:1px solid var(--line);min-height:260px}
-.gallery figure:first-child{grid-row:1/3}
-.gallery img{height:100%;object-fit:cover;transition:.35s}
-.gallery figure:hover img{transform:scale(1.03)}
-.gallery figcaption{
-  position:absolute;left:14px;bottom:14px;
-  background:rgba(5,7,10,.8);
-  padding:8px 10px;
-  font-size:.7rem;font-weight:900;letter-spacing:.1em;
-}
-
-footer{
-  padding:40px 7vw;
-  text-align:center;
-  color:var(--muted);
-  border-top:1px solid var(--line);
-  font-size:.75rem;
-}
-@media(max-width:950px){
-  .featured{grid-template-columns:1fr}
-  .card.big{grid-template-columns:1fr}
-  .side-list .card{grid-template-columns:140px 1fr}
-}
-@media(max-width:700px){
-  header{padding:0 20px}
-  nav{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;padding:22px;background:#0a0d12}
-  nav.open{display:flex}
-  .menu{display:block}
-  .hero{min-height:75vh;padding:90px 22px 55px}
-  main section{padding:70px 22px}
-  .form-grid{grid-template-columns:1fr}
-  textarea,.upload{grid-column:auto}
-  .side-list .card{grid-template-columns:1fr}
-  .side-list .card img{min-height:220px}
-  .gallery{grid-template-columns:1fr;grid-template-rows:auto}
-  .gallery figure:first-child{grid-row:auto}
-  .btn{width:100%;text-align:center}
-}
+h1{font-size:clamp(5rem,12vw,9.5rem);line-height:.8;margin:18px 0;text-shadow:0 18px 45px #000}h1 span{display:block;color:var(--orange)}
+.hero p{max-width:650px;color:#e0e3e7;line-height:1.8}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.btn{display:inline-block;padding:15px 21px;border:1px solid var(--line);background:rgba(8,10,14,.55);color:#fff;font-size:.74rem;font-weight:900;letter-spacing:.09em;cursor:pointer;transition:.25s}
+.btn.primary{background:var(--orange);border-color:var(--orange)}.btn:hover{transform:translateY(-3px);border-color:var(--yellow)}
+.quick{display:grid;grid-template-columns:repeat(5,1fr);background:#0c1016;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.quick div{padding:23px 12px;text-align:center;border-right:1px solid var(--line)}.quick div:last-child{border:0}.quick strong{display:block;font-family:Anton;font-size:1.8rem;color:var(--orange)}.quick span{font-size:.64rem;color:var(--muted);font-weight:800;letter-spacing:.1em}
+section{padding:90px 7vw}.dark{background:#0d1117;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.heading{text-align:center;max-width:800px;margin:0 auto 44px}.heading small{color:var(--yellow);font-weight:900;letter-spacing:.18em}.heading h2{font-size:clamp(3rem,7vw,5.7rem);line-height:.93;margin:9px 0}.heading p{color:var(--muted);line-height:1.75}
+.featured{display:grid;grid-template-columns:1.4fr 1fr;gap:17px}.main-news{display:grid;grid-template-columns:1.25fr 1fr;background:var(--panel);border:1px solid var(--line);min-height:390px;overflow:hidden}.main-news img{height:100%;object-fit:cover}.body{padding:25px}.body small,.mini-card small{color:var(--yellow);font-size:.65rem;font-weight:900;letter-spacing:.12em}.body h3{font-size:2.4rem;margin:10px 0}.body p,.mini-card p{color:var(--muted);font-size:.84rem;line-height:1.7}
+.side{display:grid;gap:17px}.mini-card{display:grid;grid-template-columns:155px 1fr;background:var(--panel);border:1px solid var(--line);overflow:hidden}.mini-card img{height:100%;min-height:180px;object-fit:cover}.mini-card .body{padding:18px}.mini-card h3{font-size:1.6rem;margin:8px 0}
+.directory{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.directory article{padding:23px;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);min-height:220px;position:relative}.directory .icon{font-size:2rem}.directory h3{font-size:1.6rem;margin:20px 0 9px}.directory p{color:var(--muted);font-size:.8rem;line-height:1.6}.directory a{display:inline-block;margin-top:13px;color:var(--yellow);font-size:.68rem;font-weight:900}
+.events{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.event{border:1px solid var(--line);background:var(--panel);overflow:hidden}.event img{height:230px;object-fit:cover}.date{display:inline-block;background:var(--orange);padding:7px 9px;font-size:.64rem;font-weight:900}.event .body h3{font-size:1.8rem}
+.jobs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.job{padding:24px;border:1px solid var(--line);background:var(--panel)}.job .salary{color:var(--green);font-weight:900;font-size:.8rem}.job h3{font-size:1.8rem;margin:10px 0}.job p{color:var(--muted);font-size:.82rem;line-height:1.65}.job ul{padding-left:18px;color:#d8dce2;font-size:.78rem;line-height:1.8}
+.market{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.listing{border:1px solid var(--line);background:var(--panel);overflow:hidden}.listing .fake-img{height:170px;background:linear-gradient(145deg,#20304b,#a34633 55%,#f0a446);position:relative}.listing:nth-child(2) .fake-img{background:linear-gradient(145deg,#16273a,#3d6786,#d7b34a)}.listing:nth-child(3) .fake-img{background:linear-gradient(145deg,#25182f,#7f3973,#ed6f69)}.listing:nth-child(4) .fake-img{background:linear-gradient(145deg,#142c2a,#297a62,#e8bf4e)}.price{font-family:Anton;font-size:1.8rem;color:var(--green)}.listing .body{padding:18px}.listing h3{font-size:1.5rem;margin:5px 0}
+.community-grid{display:grid;grid-template-columns:1fr .8fr;gap:18px}.post-box,.feed{background:var(--panel);border:1px solid var(--line);padding:23px}.form{display:grid;grid-template-columns:1fr 1fr;gap:13px}input,textarea{width:100%;padding:14px;background:#0b1016;color:#fff;border:1px solid var(--line)}textarea{grid-column:1/-1;min-height:120px;resize:vertical}.upload{grid-column:1/-1;padding:17px;border:1px dashed rgba(255,255,255,.24);text-align:center;color:var(--muted);font-size:.8rem}.post{border-bottom:1px solid var(--line);padding:15px 0}.post:last-child{border:0}.post-head{display:flex;justify-content:space-between;gap:15px}.post-head strong{color:var(--yellow)}.post-head span{font-size:.7rem;color:var(--muted)}.post p{font-size:.84rem;color:#d9dde3;line-height:1.6}
+.gallery{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:1fr 1fr;gap:15px}.gallery figure{margin:0;position:relative;overflow:hidden;border:1px solid var(--line);min-height:270px}.gallery figure:first-child{grid-row:1/3}.gallery img{height:100%;object-fit:cover;transition:.35s}.gallery figure:hover img{transform:scale(1.03)}figcaption{position:absolute;left:14px;bottom:14px;background:rgba(5,7,10,.82);padding:8px 10px;font-size:.68rem;font-weight:900;letter-spacing:.1em}
+.stats-panel{display:grid;grid-template-columns:1.2fr 1fr;gap:17px}.map{min-height:370px;background:linear-gradient(135deg,#172333,#24394d 55%,#7e4035);border:1px solid var(--line);position:relative;overflow:hidden}.map::before,.map::after{content:"";position:absolute;background:rgba(255,194,71,.5)}.map::before{width:160%;height:9px;left:-30%;top:48%;transform:rotate(-24deg)}.map::after{height:160%;width:8px;left:48%;top:-30%;transform:rotate(18deg)}.map-label{position:absolute;z-index:2;left:20px;top:20px;background:#0b0f15;padding:8px 10px;font-size:.67rem;font-weight:900}.server-cards{display:grid;gap:14px}.server-card{padding:22px;background:var(--panel);border:1px solid var(--line)}.server-card strong{display:block;font-family:Anton;font-size:2rem;color:var(--orange)}.server-card span{font-size:.72rem;color:var(--muted)}
+footer{padding:50px 7vw;background:#05070a;border-top:1px solid var(--line)}.footer-grid{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:25px}.footer-grid h4{margin:0 0 12px;font-size:.78rem;letter-spacing:.1em}.footer-grid p,.footer-grid a{display:block;color:var(--muted);font-size:.75rem;line-height:1.9}.copyright{text-align:center;color:#727986;font-size:.68rem;margin-top:35px;padding-top:25px;border-top:1px solid var(--line)}
+@media(max-width:1050px){.directory,.market{grid-template-columns:repeat(2,1fr)}.events,.jobs{grid-template-columns:1fr 1fr}.featured,.stats-panel{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){header{padding:0 20px}.newsbar{top:76px}nav{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;padding:22px;background:#090c11}nav.open{display:flex}.menu{display:block}.hero{padding:145px 22px 60px}.quick{grid-template-columns:1fr 1fr}.quick div:last-child{grid-column:1/-1}section{padding:70px 22px}.main-news{grid-template-columns:1fr}.side .mini-card{grid-template-columns:1fr}.directory,.events,.jobs,.market,.community-grid,.footer-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr;grid-template-rows:auto}.gallery figure:first-child{grid-row:auto}.form{grid-template-columns:1fr}textarea,.upload{grid-column:auto}.actions .btn{width:100%;text-align:center}}
 </style>
 </head>
 <body>
+<div class="topbar"></div>
 <header>
-  <a class="logo" href="#inicio">SANTAFE <b>PLAYA</b></a>
-  <button class="menu" aria-label="Abrir menú">☰</button>
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#anuncios">Anuncios</a>
-    <a href="#comunidad">Comunidad</a>
-    <a href="#galeria">Galería</a>
-  </nav>
+<a class="logo" href="#inicio">SANTAFE <b>PLAYA</b></a>
+<button class="menu">☰</button>
+<nav>
+<a href="#noticias">Noticias</a><a href="#directorio">Ciudad</a><a href="#eventos">Eventos</a>
+<a href="#empleos">Empleos</a><a href="#mercado">Mercado</a><a href="#comunidad">Comunidad</a><a href="#galeria">Galería</a>
+</nav>
 </header>
+<div class="newsbar"><b>WEAZEL NEWS</b><div class="marquee">Última hora: concentración de vehículos en el taller · Nuevas vacantes de taxista · Operativo policial en la zona industrial · Fiesta en Santafe Beach Club esta noche ·</div></div>
 
 <section id="inicio" class="hero">
-  <div class="hero-content">
-    <span class="kicker">FIVEM ROLEPLAY · LOS SANTOS</span>
-    <h1>SANTAFE<span>PLAYA</span></h1>
-    <p>
-      Noticias, anuncios, fotos y conversaciones de nuestro clan.
-      Una web sencilla, visual y con personalidad de GTA V.
-    </p>
-    <div class="actions">
-      <a class="btn primary" href="#comunidad">PUBLICAR EN EL MURO</a>
-      <a class="btn" href="#anuncios">VER ANUNCIOS</a>
-    </div>
-  </div>
+<div class="hero-content">
+<span class="tag">PORTAL OFICIAL · FIVEM ROLEPLAY</span>
+<h1>SANTAFE<span>PLAYA</span></h1>
+<p>Noticias, anuncios, empleos, negocios, eventos, mercado y publicaciones de jugadores. Todo lo que ocurre en Los Santos, en un solo lugar.</p>
+<div class="actions"><a class="btn primary" href="#comunidad">PUBLICAR AHORA</a><a class="btn" href="#noticias">EXPLORAR EL PORTAL</a></div>
+</div>
 </section>
 
+<div class="quick">
+<div><strong>24/7</strong><span>PORTAL ACTIVO</span></div><div><strong>32</strong><span>MIEMBROS</span></div>
+<div><strong>12</strong><span>NEGOCIOS</span></div><div><strong>8</strong><span>EMPLEOS</span></div><div><strong>+100</strong><span>PUBLICACIONES</span></div>
+</div>
+
 <main>
-  <section id="anuncios">
-    <div class="heading">
-      <small>ÚLTIMAS NOVEDADES</small>
-      <h2>ANUNCIOS DEL SERVIDOR</h2>
-      <p>Un espacio claro para publicar eventos, reuniones y noticias del clan.</p>
-    </div>
+<section id="noticias">
+<div class="heading"><small>ACTUALIDAD DE LOS SANTOS</small><h2>NOTICIAS DESTACADAS</h2><p>Información del servidor, avisos del clan y novedades de la ciudad.</p></div>
+<div class="featured">
+<article class="main-news"><img src="assets/tuning.jpg" alt="Evento tuning"><div class="body"><small>PORTADA</small><h3>REGRESA LA GUERRA DE TUNING</h3><p>El evento más esperado vuelve este sábado con exposición, carrera, premios y una gran reunión del clan.</p><a class="btn primary" href="#eventos">VER EVENTO</a></div></article>
+<div class="side">
+<article class="mini-card"><img src="assets/policia.webp" alt="Policía GTA"><div class="body"><small>SEGURIDAD</small><h3>OPERATIVO ESPECIAL</h3><p>Controles reforzados en la zona industrial.</p></div></article>
+<article class="mini-card"><img src="assets/taxis.jpg" alt="Taxi GTA"><div class="body"><small>EMPLEO</small><h3>TAXI SANTAFE CONTRATA</h3><p>Turnos disponibles durante toda la semana.</p></div></article>
+</div>
+</div>
+</section>
 
-    <div class="featured">
-      <article class="card big">
-        <img src="assets/tuning.jpg" alt="Evento de tuning en GTA V">
-        <div class="card-body">
-          <small>EVENTO DESTACADO</small>
-          <h3>GUERRA DE TUNING</h3>
-          <p>Este sábado habrá exposición de coches, carrera nocturna y premio para el mejor vehículo.</p>
-        </div>
-      </article>
+<section id="directorio" class="dark">
+<div class="heading"><small>GUÍA DE LA CIUDAD</small><h2>DIRECTORIO DE LOS SANTOS</h2><p>La página parece un portal completo gracias a sus diferentes áreas y servicios.</p></div>
+<div class="directory">
+<article><div class="icon">🚘</div><h3>SANTAFE CUSTOMS</h3><p>Taller de pintura, llantas, reparación y modificaciones.</p><a href="#mercado">VER NEGOCIO →</a></article>
+<article><div class="icon">🌴</div><h3>PLAYA CLUB</h3><p>Discoteca, terraza privada, música y eventos nocturnos.</p><a href="#eventos">VER AGENDA →</a></article>
+<article><div class="icon">🚕</div><h3>TAXI SANTAFE</h3><p>Transporte seguro por toda la ciudad las 24 horas.</p><a href="#empleos">TRABAJAR AQUÍ →</a></article>
+<article><div class="icon">🍔</div><h3>BURRITO FELIZ</h3><p>Comida rápida, entregas y servicio nocturno.</p><a href="#mercado">VER OFERTAS →</a></article>
+</div>
+</section>
 
-      <div class="side-list">
-        <article class="card">
-          <img src="assets/policia.webp" alt="Patrulla policial de GTA V">
-          <div class="card-body">
-            <small>AVISO</small>
-            <h3>OPERATIVO POLICIAL</h3>
-            <p>Evita la zona industrial durante la noche.</p>
-          </div>
-        </article>
+<section id="eventos">
+<div class="heading"><small>AGENDA DEL SERVIDOR</small><h2>PRÓXIMOS EVENTOS</h2><p>Actividades ficticias que dan sensación de una comunidad viva.</p></div>
+<div class="events">
+<article class="event"><img src="assets/tuning.jpg" alt=""><div class="body"><span class="date">SÁBADO · 23:00</span><h3>GUERRA DE TUNING</h3><p>Exposición, carrera y premio al mejor coche.</p></div></article>
+<article class="event"><img src="assets/taxis.jpg" alt=""><div class="body"><span class="date">DOMINGO · 21:30</span><h3>RUTA NOCTURNA</h3><p>Recorrido del clan por la ciudad y la costa.</p></div></article>
+<article class="event"><img src="assets/persecucion.png" alt=""><div class="body"><span class="date">VIERNES · 00:00</span><h3>NOCHE DE ACCIÓN</h3><p>Evento especial de rol con diferentes facciones.</p></div></article>
+</div>
+</section>
 
-        <article class="card">
-          <img src="assets/taxis.jpg" alt="Taxis en GTA V">
-          <div class="card-body">
-            <small>NUEVO TRABAJO</small>
-            <h3>TAXI SANTAFE</h3>
-            <p>Se buscan conductores para el turno de noche.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+<section id="empleos" class="dark">
+<div class="heading"><small>OPORTUNIDADES</small><h2>EMPLEOS DISPONIBLES</h2><p>Ofertas ficticias para que el portal parezca conectado con toda la ciudad.</p></div>
+<div class="jobs">
+<article class="job"><span class="salary">$2.500 POR TURNO</span><h3>CONDUCTOR DE TAXI</h3><p>Taxi Santafe busca conductores responsables.</p><ul><li>Carnet de conducir</li><li>Buen trato</li><li>Horario flexible</li></ul></article>
+<article class="job"><span class="salary">$3.200 POR TURNO</span><h3>MECÁNICO</h3><p>Se necesita personal para Santafe Customs.</p><ul><li>Experiencia básica</li><li>Disponibilidad nocturna</li><li>Trabajo en equipo</li></ul></article>
+<article class="job"><span class="salary">$2.100 POR TURNO</span><h3>SEGURIDAD VIP</h3><p>Personal de seguridad para Playa Club.</p><ul><li>Buena presencia</li><li>Seriedad</li><li>Radio propia</li></ul></article>
+</div>
+</section>
 
-  <section id="comunidad" class="community">
-    <div class="heading">
-      <small>MURO DEL CLAN</small>
-      <h2>HABLA Y COMPARTE</h2>
-      <p>Los jugadores podrán escribir su nombre, dejar comentarios y subir fotografías.</p>
-    </div>
+<section id="mercado">
+<div class="heading"><small>COMPRA Y VENTA</small><h2>MERCADO SANTAFE</h2><p>Anuncios clasificados de vehículos, viviendas y servicios.</p></div>
+<div class="market">
+<article class="listing"><div class="fake-img"></div><div class="body"><span class="price">$85.000</span><h3>COUPÉ DEPORTIVO</h3><p>Preparado para ciudad y carretera.</p></div></article>
+<article class="listing"><div class="fake-img"></div><div class="body"><span class="price">$42.500</span><h3>TAXI CLÁSICO</h3><p>Vehículo listo para trabajar.</p></div></article>
+<article class="listing"><div class="fake-img"></div><div class="body"><span class="price">$6.000/MES</span><h3>ÁTICO EN VESPUCCI</h3><p>Vistas al mar y garaje privado.</p></div></article>
+<article class="listing"><div class="fake-img"></div><div class="body"><span class="price">$12.000</span><h3>LICENCIA COMERCIAL</h3><p>Traspaso de pequeño negocio.</p></div></article>
+</div>
+</section>
 
-    <div class="post-box">
-      <div class="form-grid">
-        <input type="text" placeholder="Nombre del jugador">
-        <input type="text" placeholder="Título de la publicación">
-        <textarea placeholder="Escribe tu comentario o anuncio..."></textarea>
-        <label class="upload">Seleccionar fotografía<input type="file" accept="image/*" hidden></label>
-      </div>
-      <div class="actions">
-        <button class="btn primary" type="button" onclick="alert('Este botón se conectará a la base de datos para guardar las publicaciones de todos los jugadores.')">PUBLICAR</button>
-      </div>
-      <p class="notice">
-        El diseño del muro ya está preparado. Para que las fotos y comentarios se guarden para todos,
-        conectaremos este formulario a la base de datos del servidor.
-      </p>
-    </div>
+<section id="comunidad" class="dark">
+<div class="heading"><small>MURO DEL CLAN</small><h2>COMUNIDAD</h2><p>Área para anuncios, conversaciones y fotografías de los jugadores.</p></div>
+<div class="community-grid">
+<div class="post-box">
+<h3>CREAR PUBLICACIÓN</h3>
+<div class="form"><input placeholder="Nombre del jugador"><input placeholder="Título"><textarea placeholder="Escribe un anuncio o comentario..."></textarea><label class="upload">📷 Seleccionar fotografía<input type="file" accept="image/*" hidden></label></div>
+<div class="actions"><button class="btn primary" onclick="alert('El diseño ya está preparado. Falta conectarlo a la base de datos para guardar las publicaciones.')">PUBLICAR</button></div>
+</div>
+<div class="feed">
+<h3>ACTIVIDAD RECIENTE</h3>
+<div class="post"><div class="post-head"><strong>SantaFe_Rene</strong><span>Hace 20 min</span></div><p>La reunión del clan empieza a las 23:30 en el taller.</p></div>
+<div class="post"><div class="post-head"><strong>El_Cubano</strong><span>Hace 1 h</span></div><p>Busco dos personas para la ruta nocturna.</p></div>
+<div class="post"><div class="post-head"><strong>Victoria_32</strong><span>Ayer</span></div><p>Ya están subidas las fotos del evento.</p></div>
+</div>
+</div>
+</section>
 
-    <div class="fake-feed">
-      <article class="post">
-        <div class="post-head"><strong>El_Cubano</strong><span>Hoy · 21:30</span></div>
-        <p>Quedada del clan esta noche en el taller. Traed vuestros mejores coches.</p>
-      </article>
-      <article class="post">
-        <div class="post-head"><strong>SantaFe_Rene</strong><span>Ayer · 23:45</span></div>
-        <p>Fotos de la última persecución por la autopista.</p>
-        <img src="assets/persecucion.png" alt="Persecución en GTA V">
-      </article>
-    </div>
-  </section>
+<section id="galeria">
+<div class="heading"><small>ARCHIVO MULTIMEDIA</small><h2>GALERÍA DEL SERVIDOR</h2><p>Una selección de momentos de coches, policía, trabajos y persecuciones.</p></div>
+<div class="gallery">
+<figure><img src="assets/persecucion.png" alt=""><figcaption>PERSECUCIÓN EN LA AUTOPISTA</figcaption></figure>
+<figure><img src="assets/tuning.jpg" alt=""><figcaption>GUERRA DE TUNING</figcaption></figure>
+<figure><img src="assets/policia.webp" alt=""><figcaption>PATRULLA DEL CONDADO</figcaption></figure>
+</div>
+</section>
 
-  <section id="galeria">
-    <div class="heading">
-      <small>CAPTURAS DEL CLAN</small>
-      <h2>GALERÍA</h2>
-      <p>Fotos del servidor organizadas de forma sencilla y visual.</p>
-    </div>
-    <div class="gallery">
-      <figure><img src="assets/persecucion.png" alt="Persecución en GTA V"><figcaption>PERSECUCIÓN NOCTURNA</figcaption></figure>
-      <figure><img src="assets/tuning.jpg" alt="Coches tuning en GTA V"><figcaption>EVENTO DE TUNING</figcaption></figure>
-      <figure><img src="assets/policia.webp" alt="Vehículos policiales GTA V"><figcaption>PATRULLA DEL CONDADO</figcaption></figure>
-    </div>
-  </section>
+<section class="dark">
+<div class="heading"><small>DATOS DEL SERVIDOR</small><h2>ESTADO DE SANTAFE</h2><p>Otra zona visual que hace que la página parezca un portal completo.</p></div>
+<div class="stats-panel">
+<div class="map"><span class="map-label">MAPA DE ACTIVIDAD · LOS SANTOS</span></div>
+<div class="server-cards">
+<div class="server-card"><strong>82%</strong><span>ACTIVIDAD DEL SERVIDOR</span></div>
+<div class="server-card"><strong>32/64</strong><span>JUGADORES CONECTADOS</span></div>
+<div class="server-card"><strong>ONLINE</strong><span>ESTADO DE LOS SERVICIOS</span></div>
+</div>
+</div>
+</section>
 </main>
 
 <footer>
-  © 2026 Santafe Playa · Comunidad independiente de GTA V Roleplay.<br>
-  No afiliado con Rockstar Games, Take-Two Interactive ni Cfx.re.
+<div class="footer-grid">
+<div><h4>SANTAFE PLAYA</h4><p>Portal independiente de una comunidad de GTA V Roleplay para FiveM.</p></div>
+<div><h4>PORTAL</h4><a href="#noticias">Noticias</a><a href="#eventos">Eventos</a><a href="#galeria">Galería</a></div>
+<div><h4>CIUDAD</h4><a href="#directorio">Negocios</a><a href="#empleos">Empleos</a><a href="#mercado">Mercado</a></div>
+<div><h4>COMUNIDAD</h4><a href="#comunidad">Publicar</a><a href="#comunidad">Comentarios</a><a href="#comunidad">Fotos</a></div>
+</div>
+<div class="copyright">© 2026 Santafe Playa · No afiliado con Rockstar Games, Take-Two Interactive ni Cfx.re.</div>
 </footer>
-
 <script>
-const menu=document.querySelector('.menu');
-const nav=document.querySelector('nav');
+const menu=document.querySelector('.menu'),nav=document.querySelector('nav');
 menu.addEventListener('click',()=>nav.classList.toggle('open'));
 document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
 </script>

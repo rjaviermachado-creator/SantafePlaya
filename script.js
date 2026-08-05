@@ -1,27 +1,18 @@
-# Santafe Playa - Web para GitHub Pages
-
-## Cómo subirla
-
-1. Abre tu repositorio `SantafePlaya`.
-2. Pulsa **Agregar archivo** → **Cargar archivos**.
-3. Sube todo el contenido de esta carpeta:
-   - index.html
-   - style.css
-   - script.js
-   - carpeta assets
-4. Pulsa **Confirmar cambios**.
-5. Espera 1 o 2 minutos.
-6. Abre:
-   https://rjaviermachado-creator.github.io/SantafePlaya/
-
-## Cambiar Discord y FiveM
-
-En `index.html`, busca:
-- `Sustituye este enlace por el enlace de tu Discord`
-- `Sustituye este enlace por el enlace de conexión de tu servidor FiveM`
-
-Cambia el `href="#"` por tu enlace real.
-
-## Cambiar imágenes
-
-Puedes sustituir los archivos dentro de `assets` manteniendo el mismo nombre.
+"use strict";
+const DISCORD_URL="https://discord.gg/z4BShMXrx";
+const menu=document.getElementById("menu-btn"),nav=document.getElementById("nav"),soundButton=document.getElementById("sound-btn"),toast=document.getElementById("toast"),cursor=document.getElementById("cursor-light");
+let soundEnabled=true,audioContext=null;
+function audio(){if(!soundEnabled)return null;const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return null;if(!audioContext)audioContext=new Ctx();if(audioContext.state==="suspended")audioContext.resume().catch(()=>{});return audioContext}
+function tone(freq=280,duration=.045,type="triangle",volume=.018){const ctx=audio();if(!ctx)return;const osc=ctx.createOscillator(),gain=ctx.createGain(),now=ctx.currentTime;osc.type=type;osc.frequency.value=freq;gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(volume,now+.006);gain.gain.exponentialRampToValueAtTime(.0001,now+duration);osc.connect(gain);gain.connect(ctx.destination);osc.start(now);osc.stop(now+duration+.02)}
+function showToast(message){toast.textContent=message;toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>toast.classList.remove("show"),2200)}
+menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.textContent=open?"✕":"☰";tone(open?420:250)});
+nav.addEventListener("click",e=>{if(e.target.closest("a")){nav.classList.remove("open");menu.setAttribute("aria-expanded","false");menu.textContent="☰"}});
+soundButton.addEventListener("click",()=>{soundEnabled=!soundEnabled;soundButton.textContent=soundEnabled?"🔊":"🔇";soundButton.setAttribute("aria-label",soundEnabled?"Silenciar efectos":"Activar efectos");if(soundEnabled)tone(620,.08,"sine",.025);showToast(soundEnabled?"Efectos activados":"Efectos silenciados")});
+document.addEventListener("pointermove",e=>{if(cursor){cursor.style.left=`${e.clientX}px`;cursor.style.top=`${e.clientY}px`}});
+document.addEventListener("pointerdown",e=>{const target=e.target.closest?.(".fx-btn");if(target){tone(220,.05,"square",.018);const r=target.getBoundingClientRect(),wave=document.createElement("span");wave.className="ripple";wave.style.left=`${e.clientX-r.left}px`;wave.style.top=`${e.clientY-r.top}px`;wave.style.width=wave.style.height=`${Math.max(r.width,r.height)/2}px`;target.append(wave);setTimeout(()=>wave.remove(),600)}});
+document.querySelectorAll("a,button,.tilt").forEach(el=>el.addEventListener("pointerenter",()=>tone(470,.025,"sine",.007)));
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.08});document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+if(matchMedia("(hover:hover) and (pointer:fine)").matches){document.querySelectorAll(".tilt").forEach(card=>{card.addEventListener("pointermove",e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(850px) rotateX(${-y*3.5}deg) rotateY(${x*4}deg) translateY(-2px)`});card.addEventListener("pointerleave",()=>card.style.transform="")})}
+const sections=[...document.querySelectorAll("main section[id]")];const navLinks=[...nav.querySelectorAll("a")];const activeObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(link=>link.classList.toggle("active",link.getAttribute("href")===`#${entry.target.id}`))}}),{rootMargin:"-35% 0px -55% 0px"});sections.forEach(section=>activeObserver.observe(section));
+document.getElementById("copy-discord").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(DISCORD_URL);tone(760,.08,"sine",.025);showToast("Invitación de Discord copiada")}catch{showToast(DISCORD_URL)}});
+document.getElementById("year").textContent=String(new Date().getFullYear());

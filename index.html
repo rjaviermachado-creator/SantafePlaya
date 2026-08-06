@@ -3,111 +3,131 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#080b08">
-  <meta name="description" content="Santafe Playa, comunidad GTA V Roleplay en FiveM. Entra al Discord, supera la whitelist y elige tu rol.">
-  <title>Santafe Playa · FiveM Roleplay</title>
+  <meta name="theme-color" content="#070a08">
+  <meta name="description" content="Santafe Playa, comunidad GTA V Roleplay en FiveM. Whitelist, departamentos, vehículos y vida en Los Santos.">
+  <title>Santafe Playa · GTA V Roleplay</title>
   <link rel="icon" href="logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=20260806-1">
-  <script defer src="script.js?v=20260806-1"></script>
+  <link rel="stylesheet" href="style.css?v=20260806-3">
+  <script defer src="script.js?v=20260806-3"></script>
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="#inicio" aria-label="Santafe Playa, inicio">
       <span class="brand-mark">SP</span>
-      <span class="brand-copy"><strong>SANTAFE <b>PLAYA</b></strong><small>LOS SANTOS ROLEPLAY</small></span>
+      <span><strong>SANTAFE <b>PLAYA</b></strong><small>LOS SANTOS ROLEPLAY</small></span>
     </a>
-    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="nav" id="nav">
       <a href="#inicio">Inicio</a><a href="#servidor">Servidor</a><a href="#roles">Roles</a><a href="#galeria">Galería</a><a href="#normas">Normas</a>
-      <a class="nav-discord" href="https://discord.gg/z4BShMXrx" target="_blank" rel="noopener">Discord ↗</a>
+      <a class="discord-small" href="https://discord.gg/z4BShMXrx" target="_blank" rel="noopener">Discord ↗</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="inicio">
-      <div class="hero-city" aria-hidden="true"></div>
-      <div class="hero-grid"></div>
+      <div class="hero-photo shot shot-10" id="heroPhoto" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
       <div class="hero-content">
-        <p class="eyebrow">FIVEM ROLEPLAY · LOS SANTOS</p>
+        <p class="eyebrow"><i></i> GTA V · FIVEM ROLEPLAY</p>
         <h1>SANTAFE<br><span>PLAYA</span></h1>
-        <p class="hero-text">Tu historia empieza aquí. Crea tu personaje, supera la whitelist y entra en una ciudad donde cada decisión importa.</p>
+        <p class="lead">Una ciudad con identidad propia. Patrulla, trabaja, crea negocios, conduce vehículos exclusivos y construye tu historia en Los Santos.</p>
         <div class="hero-actions">
           <a class="btn primary" href="https://discord.gg/z4BShMXrx" target="_blank" rel="noopener">ENTRAR AL DISCORD ↗</a>
-          <a class="btn secondary" href="#como-entrar">CÓMO ENTRAR</a>
+          <a class="btn ghost" href="#como-entrar">CÓMO ENTRAR</a>
         </div>
-        <div class="hero-tags"><span>● WHITELIST</span><span>● COMUNIDAD</span><span>● ROLEPLAY</span></div>
+        <div class="hero-tags"><span>WHITELIST</span><span>ROLEPLAY</span><span>COMUNIDAD</span></div>
       </div>
-      <aside class="hero-card">
-        <div class="hero-image"><img src="city.svg" alt="Ciudad de Santafe Playa"></div>
-        <div class="hero-card-copy"><small>ESTADO DEL SERVIDOR</small><strong><i></i> COMUNIDAD ACTIVA</strong><span>Solicitudes en #postulaciones</span></div>
-      </aside>
+      <div class="server-panel glass">
+        <div class="live"><i></i><span>COMUNIDAD ACTIVA</span></div>
+        <div class="server-data"><small>ESTADO</small><strong>DISCORD ABIERTO</strong></div>
+        <div class="server-data"><small>JUGADORES ONLINE</small><strong id="playerCount">CONSULTAR DISCORD</strong></div>
+        <a href="https://discord.gg/z4BShMXrx" target="_blank" rel="noopener">VER ESTADO ↗</a>
+      </div>
+      <a class="scroll" href="#servidor">DESCUBRE LA CIUDAD ↓</a>
     </section>
 
-    <div class="ticker"><div>SANTAFE PLAYA ★ LOS SANTOS ★ FIVEM ★ LSPD ★ EMS ★ SHERIFF ★ MECÁNICOS ★ BORDER PATROL ★ HIGHWAY PATROL ★</div></div>
+    <div class="ticker"><div>SANTAFE PLAYA ★ LOS SANTOS ★ LSPD ★ BORDER PATROL ★ EMS ★ MECÁNICOS ★ VEHÍCULOS ★ FIVEM ROLEPLAY ★ SANTAFE PLAYA ★ LOS SANTOS ★</div></div>
 
     <section class="section intro" id="servidor">
-      <div class="section-title"><p>01 · EL SERVIDOR</p><h2>UNA CIUDAD.<br><span>MILES DE HISTORIAS.</span></h2></div>
-      <div class="intro-grid">
-        <article class="visual-card visual-main"><img src="gallery-1.svg" alt="Escena nocturna de Santafe Playa"><div><small>LOS SANTOS</small><h3>LA CIUDAD NUNCA DUERME</h3><p>Negocios, patrullas, emergencias, carreras y escenas que cambian cada noche.</p></div></article>
-        <article class="info-card"><b>01</b><small>IDENTIDAD</small><h3>Crea tu personaje</h3><p>Construye una historia coherente y haz que cada decisión tenga consecuencias.</p></article>
-        <article class="info-card accent"><b>02</b><small>COMUNIDAD</small><h3>Haz equipo</h3><p>Conoce jugadores, entra en departamentos y participa en eventos.</p></article>
-        <article class="info-card"><b>03</b><small>ROLEPLAY</small><h3>Vive el entorno</h3><p>Respeta las normas y ayuda a crear escenas de calidad para todos.</p></article>
+      <div class="heading"><div><p class="kicker">01 // EL SERVIDOR</p><h2>LA CIUDAD<br><span>ESTÁ VIVA.</span></h2></div><p>Estas son capturas reales de Santafe Playa. Cada turno, cada patrulla y cada encuentro puede convertirse en una nueva historia.</p></div>
+      <div class="feature-layout">
+        <article class="feature-main shot shot-2"><div><small>LOS SANTOS</small><h3>UNA CIUDAD COMPLETA</h3><p>Explora zonas urbanas, carreteras, barrios, negocios y departamentos operativos.</p></div></article>
+        <article class="feature-card glow-card"><b>01</b><small>ROLEPLAY</small><h3>Crea tu personaje</h3><p>Construye una historia coherente y evoluciona dentro de la comunidad.</p></article>
+        <article class="feature-card lime glow-card"><b>02</b><small>DEPARTAMENTOS</small><h3>Elige tu camino</h3><p>LSPD, Border Patrol, EMS, mecánicos, sheriff y más.</p></article>
+        <article class="feature-card glow-card"><b>03</b><small>VIDA CIVIL</small><h3>Negocios y motor</h3><p>Vehículos exclusivos, talleres, encuentros y oportunidades.</p></article>
+        <article class="feature-card glow-card"><b>04</b><small>COMUNIDAD</small><h3>Historias compartidas</h3><p>Organiza escenas y participa en eventos dentro de la ciudad.</p></article>
       </div>
     </section>
 
-    <section class="access" id="como-entrar">
-      <div class="section section-tight">
-        <div class="section-title"><p>02 · ACCESO</p><h2>ENTRA EN<br><span>SANTAFE PLAYA.</span></h2></div>
-        <div class="steps">
-          <article><span>01</span><small>DISCORD</small><h3>Únete a la comunidad</h3><p>Entra al Discord oficial y revisa los canales de información.</p><a href="https://discord.gg/z4BShMXrx" target="_blank" rel="noopener">ABRIR DISCORD ↗</a></article>
-          <article class="step-main"><span>02</span><small>WHITELIST</small><h3>Ve a #postulaciones</h3><p>Completa el proceso de acceso y demuestra que conoces las normas.</p><button id="copyChannel">COPIAR #POSTULACIONES</button></article>
-          <article><span>03</span><small>TU HISTORIA</small><h3>Solicita tu rol</h3><p>Elige un departamento, trabajo o camino civil dentro de la ciudad.</p><a href="#roles">VER ROLES ↓</a></article>
+    <section class="carousel-section" aria-labelledby="carouselTitle">
+      <div class="carousel-copy"><p class="kicker">CAPTURAS DEL SERVIDOR</p><h2 id="carouselTitle">SANTAFE<br><span>EN ACCIÓN.</span></h2><p>Desliza o utiliza los controles para recorrer escenas reales del servidor.</p></div>
+      <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <article class="slide shot shot-10"><span>01</span><div><small>PATRULLA NOCTURNA</small><h3>LOS SANTOS DE NOCHE</h3></div></article>
+          <article class="slide shot shot-1"><span>02</span><div><small>BORDER PATROL</small><h3>CENTRO DE OPERACIONES</h3></div></article>
+          <article class="slide shot shot-4"><span>03</span><div><small>MOTOR</small><h3>VEHÍCULOS EXCLUSIVOS</h3></div></article>
+          <article class="slide shot shot-3"><span>04</span><div><small>AVIACIÓN</small><h3>PATRULLA AÉREA</h3></div></article>
+          <article class="slide shot shot-8"><span>05</span><div><small>SERVICIO</small><h3>OPERATIVO NOCTURNO</h3></div></article>
+        </div>
+        <button class="carousel-btn prev" id="prevSlide" aria-label="Imagen anterior">‹</button>
+        <button class="carousel-btn next" id="nextSlide" aria-label="Imagen siguiente">›</button>
+        <div class="dots" id="dots" aria-label="Selector de imágenes"></div>
+      </div>
+    </section>
+
+    <section class="section access" id="como-entrar">
+      <div class="heading"><div><p class="kicker">02 // ACCESO</p><h2>ENTRA EN<br><span>SANTAFE.</span></h2></div><p>El proceso es sencillo. Entra al Discord, revisa las normas y completa la whitelist desde el canal de postulaciones.</p></div>
+      <div class="steps">
+        <article class="step glow-card"><b>01</b><small>DISCORD</small><h3>Únete a la comunidad</h3><p>Accede al Discord oficial y consulta toda la información del servidor.</p><a href="https://discord.gg/z4BShMXrx" target="_blank" rel="noopener">ABRIR DISCORD ↗</a></article>
+        <article class="step highlight glow-card"><b>02</b><small>WHITELIST</small><h3>Ve a #postulaciones</h3><p>Sigue las instrucciones, responde correctamente y espera la revisión.</p><button id="copyChannel" type="button">COPIAR #POSTULACIONES</button></article>
+        <article class="step glow-card"><b>03</b><small>TU HISTORIA</small><h3>Solicita tu rol</h3><p>Escoge un departamento, empleo o camino civil según las plazas disponibles.</p><a href="#roles">VER ROLES ↓</a></article>
+      </div>
+    </section>
+
+    <section class="roles-section" id="roles">
+      <div class="section roles-inner">
+        <div class="heading"><div><p class="kicker">03 // DEPARTAMENTOS</p><h2>ELIGE TU<br><span>CAMINO.</span></h2></div><p>Solicita tu puesto desde Discord. Las plazas y requisitos pueden cambiar según las necesidades de la ciudad.</p></div>
+        <div class="roles-grid">
+          <article class="role glow-card"><div class="role-photo shot shot-7"></div><div><small>LAW ENFORCEMENT</small><h3>LSPD</h3><p>Patrulla urbana, investigaciones y respuesta a emergencias.</p></div></article>
+          <article class="role glow-card"><div class="role-photo shot shot-9"></div><div><small>FEDERAL</small><h3>BORDER PATROL</h3><p>Operativos, vigilancia y coordinación entre agencias.</p></div></article>
+          <article class="role glow-card"><div class="role-photo shot shot-8"></div><div><small>COUNTY</small><h3>SHERIFF</h3><p>Seguridad del condado y apoyo a unidades urbanas.</p></div></article>
+          <article class="role glow-card"><div class="role-photo shot shot-3"></div><div><small>AIR UNIT</small><h3>UNIDAD AÉREA</h3><p>Vigilancia desde el aire, búsqueda y apoyo táctico.</p></div></article>
+          <article class="role glow-card"><div class="role-photo shot shot-4"></div><div><small>MOTOR</small><h3>MECÁNICOS</h3><p>Reparación, personalización y vehículos exclusivos.</p></div></article>
+          <article class="role glow-card"><div class="role-photo shot shot-6"></div><div><small>CIVIL</small><h3>VIDA CIUDADANA</h3><p>Negocios, trabajos, relaciones y nuevas oportunidades.</p></div></article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="roles">
-      <div class="section-title split-title"><div><p>03 · DEPARTAMENTOS</p><h2>ELIGE TU<br><span>CAMINO.</span></h2></div><p>La disponibilidad de plazas y los requisitos se confirman siempre dentro del Discord.</p></div>
-      <div class="roles-grid">
-        <article class="role-card role-lspd"><div class="role-icon">★</div><small>LAW ENFORCEMENT</small><h3>LSPD</h3><p>Patrulla urbana, investigaciones y respuesta policial.</p></article>
-        <article class="role-card role-ems"><div class="role-icon">✚</div><small>SANIDAD</small><h3>EMS / MÉDICOS</h3><p>Emergencias, rescates y asistencia sanitaria.</p></article>
-        <article class="role-card role-mechanic"><div class="role-icon">⚙</div><small>MOTOR</small><h3>MECÁNICOS</h3><p>Reparaciones, modificaciones y vida de taller.</p></article>
-        <article class="role-card role-sheriff"><div class="role-icon">✦</div><small>COUNTY</small><h3>SHERIFF</h3><p>Seguridad rural, condado y apoyo operativo.</p></article>
-        <article class="role-card role-border"><div class="role-icon">◆</div><small>FEDERAL</small><h3>BORDER PATROL</h3><p>Controles, vigilancia y operaciones de frontera.</p></article>
-        <article class="role-card role-highway"><div class="role-icon">➤</div><small>TRAFFIC</small><h3>HIGHWAY PATROL</h3><p>Carreteras, tráfico y persecuciones en autopista.</p></article>
-      </div>
-      <div class="roles-cta"><div><small>¿NO VES TU ROL?</small><strong>También hay civiles, negocios y nuevos departamentos.</strong></div><a class="btn primary" href="https://discord.gg/z4BShMXrx" target="_blank" rel="noopener">VER POSTULACIONES ↗</a></div>
-    </section>
-
-    <section class="gallery-wrap" id="galeria">
-      <div class="section">
-        <div class="section-title"><p>04 · GALERÍA</p><h2>VIVE<br><span>LOS SANTOS.</span></h2></div>
-        <div class="gallery">
-          <figure class="gallery-big"><img src="gallery-1.svg" alt="Noche en Los Santos"><figcaption>NOCHE EN LA CIUDAD</figcaption></figure>
-          <figure><img src="gallery-2.svg" alt="Vehículos de Santafe Playa"><figcaption>LA FLOTA</figcaption></figure>
-          <figure><img src="gallery-3.svg" alt="Santafe Playa"><figcaption>SANTAFE PLAYA</figcaption></figure>
-          <figure><img src="city.svg" alt="Mapa urbano"><figcaption>UNA CIUDAD VIVA</figcaption></figure>
-        </div>
+    <section class="section gallery-section" id="galeria">
+      <div class="heading"><div><p class="kicker">04 // GALERÍA</p><h2>VIVE LOS<br><span>SANTOS.</span></h2></div><p>Pulsa cualquier captura para verla ampliada. Todas pertenecen a la experiencia de Santafe Playa.</p></div>
+      <div class="gallery">
+        <button class="gallery-item wide shot shot-10" data-shot="10" aria-label="Ampliar patrulla nocturna"><span>PATRULLA NOCTURNA</span></button>
+        <button class="gallery-item shot shot-1" data-shot="1" aria-label="Ampliar centro de operaciones"><span>CENTRO DE OPERACIONES</span></button>
+        <button class="gallery-item shot shot-2" data-shot="2" aria-label="Ampliar vista de Los Santos"><span>LOS SANTOS</span></button>
+        <button class="gallery-item tall shot shot-3" data-shot="3" aria-label="Ampliar helicóptero"><span>PATRULLA AÉREA</span></button>
+        <button class="gallery-item shot shot-4" data-shot="4" aria-label="Ampliar concesionario"><span>CONCESIONARIO</span></button>
+        <button class="gallery-item shot shot-5" data-shot="5" aria-label="Ampliar vehículo en ciudad"><span>UNIDAD URBANA</span></button>
+        <button class="gallery-item shot shot-6" data-shot="6" aria-label="Ampliar escena civil"><span>VIDA CIVIL</span></button>
+        <button class="gallery-item wide shot shot-7" data-shot="7" aria-label="Ampliar MRPD"><span>MRPD</span></button>
+        <button class="gallery-item shot shot-8" data-shot="8" aria-label="Ampliar operativo nocturno"><span>OPERATIVO</span></button>
+        <button class="gallery-item shot shot-9" data-shot="9" aria-label="Ampliar garaje táctico"><span>COMMAND CENTER</span></button>
       </div>
     </section>
 
-    <section class="section rules-section" id="normas">
-      <div class="section-title"><p>05 · NORMAS</p><h2>RESPETO.<br><span>COHERENCIA.</span></h2><p class="rules-lead">La calidad de la ciudad depende de todos.</p></div>
-      <div class="rules-list">
-        <div><b>01</b><span>Respeta a todos los jugadores y miembros del servidor.</span></div>
-        <div><b>02</b><span>Mantén el personaje y evita romper el rol.</span></div>
-        <div><b>03</b><span>No utilices información externa dentro del juego.</span></div>
-        <div><b>04</b><span>Valora tu vida y actúa con sentido común.</span></div>
-        <div><b>05</b><span>Sigue las indicaciones del equipo administrativo.</span></div>
-      </div>
+    <section class="section rules" id="normas">
+      <div class="heading"><div><p class="kicker">05 // NORMAS</p><h2>RESPETO Y<br><span>BUEN ROL.</span></h2></div><p>La experiencia depende de todos. Consulta siempre el reglamento completo y actualizado en Discord.</p></div>
+      <div class="rules-list"><div><b>01</b><span>Respeta a todos los jugadores y al equipo administrativo.</span></div><div><b>02</b><span>Mantén el personaje y evita romper el rol.</span></div><div><b>03</b><span>No utilices información obtenida fuera del juego.</span></div><div><b>04</b><span>Valora la vida de tu personaje y actúa con coherencia.</span></div><div><b>05</b><span>Utiliza los canales oficiales para reportes y solicitudes.</span></div></div>
     </section>
 
     <section class="join">
-      <div class="join-inner"><p>¿ESTÁS PREPARADO?</p><h2>TU HISTORIA<br>EMPIEZA AHORA.</h2><a class="btn light" href="https://discord.gg/z4BShMXrx" target="_blank" rel="noopener">ENTRAR A SANTAFE PLAYA ↗</a></div>
+      <div class="join-photo shot shot-10"></div><div class="join-shade"></div>
+      <div class="join-content"><p class="kicker">TU HISTORIA EMPIEZA AQUÍ</p><h2>BIENVENIDO A<br><span>SANTAFE PLAYA.</span></h2><p>Entra al Discord, supera la whitelist y forma parte de Los Santos.</p><a class="btn primary" href="https://discord.gg/z4BShMXrx" target="_blank" rel="noopener">UNIRME AHORA ↗</a></div>
     </section>
   </main>
 
-  <footer><div class="footer-brand"><span>SP</span><strong>SANTAFE <b>PLAYA</b></strong></div><p>© <span id="year"></span> Santafe Playa · Comunidad independiente de GTA V Roleplay.</p><small>No afiliado con Rockstar Games, Take-Two Interactive ni Cfx.re.</small></footer>
+  <footer><div class="brand"><span class="brand-mark">SP</span><span><strong>SANTAFE <b>PLAYA</b></strong><small>LOS SANTOS ROLEPLAY</small></span></div><p>© <span id="year"></span> Santafe Playa. Comunidad independiente de GTA V Roleplay.</p><small>No afiliado con Rockstar Games, Take-Two Interactive ni Cfx.re.</small></footer>
+
+  <dialog class="lightbox" id="lightbox"><button id="closeLightbox" aria-label="Cerrar imagen">×</button><div class="lightbox-photo shot" id="lightboxPhoto"></div><p id="lightboxCaption">Santafe Playa</p></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

@@ -1,4 +1,5 @@
 "use strict";
+(()=>{const l=document.createElement('link');l.rel='stylesheet';l.href='generated-images.css?v=1.0.0';document.head.appendChild(l);})();
 document.addEventListener("DOMContentLoaded",()=>{
   const menu=document.getElementById("menuBtn"),nav=document.getElementById("nav");
   menu?.addEventListener("click",()=>{const open=nav?.classList.toggle("open");menu.setAttribute("aria-expanded",String(Boolean(open)));});

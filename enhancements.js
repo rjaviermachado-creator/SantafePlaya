@@ -38,6 +38,19 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   });
 
+  const roles=document.querySelector(".roles-grid");
+  if(roles && !roles.querySelector('[data-extra-role="ems"]')){
+    const ems=document.createElement("article");
+    ems.className="role glow-card";
+    ems.dataset.extraRole="ems";
+    ems.innerHTML='<div class="role-photo shot shot-6"></div><div><small>EMERGENCY MEDICAL SERVICES</small><h3>EMS</h3><p>Atención médica, rescates, emergencias y apoyo sanitario en toda la ciudad.</p></div>';
+    const highway=document.createElement("article");
+    highway.className="role glow-card";
+    highway.dataset.extraRole="highway";
+    highway.innerHTML='<div class="role-photo shot shot-5"></div><div><small>HIGHWAY PATROL</small><h3>HIGHWAY PATROL</h3><p>Control de carreteras, tráfico, persecuciones y apoyo a otras unidades.</p></div>';
+    roles.append(ems,highway);
+  }
+
   // Nueva sección visual usando las capturas reales ya guardadas en la web.
   const gallery=document.getElementById("galeria");
   if(gallery && !document.getElementById("momentos")){
@@ -67,7 +80,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   }
 
-  // Añadimos acceso a la nueva zona visual en el menú sin saturarlo en móvil.
   const nav=document.getElementById("nav");
   if(nav && !nav.querySelector('a[href="#momentos"]')){
     const discord=nav.querySelector(".discord-small");

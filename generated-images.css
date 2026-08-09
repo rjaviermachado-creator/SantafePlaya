@@ -1,0 +1,14 @@
+/* Imágenes originales vectoriales HD de Santafe Playa */
+.hero-v3 .hero-photo,.join-v3 .bg{background-image:url('assets/generated/hero-city.svg')!important;background-size:cover!important;background-position:center!important}
+.roles-grid-v3 .role-card:nth-child(1) .role-img{background-image:url('assets/generated/police.svg')!important}
+.roles-grid-v3 .role-card:nth-child(3) .role-img{background-image:url('assets/generated/border.svg')!important}
+.roles-grid-v3 .role-card:nth-child(5) .role-img{background-image:url('assets/generated/ems.svg')!important}
+.roles-grid-v3 .role-card:nth-child(7) .role-img{background-image:url('assets/generated/mechanic.svg')!important}
+.feature-grid .feature-photo:nth-child(2){background-image:url('assets/generated/police.svg')!important}
+.feature-grid .feature-photo:nth-child(3){background-image:url('assets/generated/mechanic.svg')!important}
+.gallery-v3 button[data-shot="7"]{background-image:url('assets/generated/police.svg')!important}
+.gallery-v3 button[data-shot="9"]{background-image:url('assets/generated/border.svg')!important}
+.gallery-v3 button[data-shot="4"]{background-image:url('assets/generated/mechanic.svg')!important}
+.gallery-v3 button[data-shot="10"]{background-image:url('assets/generated/hero-city.svg')!important}
+.role-img,.gallery-v3 button,.feature-photo,.hero-photo,.join-v3 .bg{image-rendering:auto;background-repeat:no-repeat!important}
+@media(max-width:680px){.hero-v3 .hero-photo{background-position:60% center!important}.role-img{height:185px!important}.gallery-v3{grid-auto-rows:235px!important}}

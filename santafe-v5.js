@@ -20,40 +20,67 @@ document.addEventListener("DOMContentLoaded",()=>{
     img.alt=btn.dataset.caption||"Santafe Playa";
     dialog.showModal();
   });
-  // El repositorio es publico; solo quienes tienen permiso de escritura pueden subir.
-  // Se consultan los nombres al cargar para que las fotos nuevas aparezcan sin editar HTML.
-  async function loadGallery(){
+  function renderPhotos(photos){
+    if(!photos.length){status.textContent="Aun no hay capturas del servidor. Puedes subir la primera.";return;}
+    const fragment=document.createDocumentFragment();
+    photos.forEach(photo=>{
+      const button=document.createElement("button");
+      button.type="button";
+      button.style.backgroundImage='url("'+photo.url+'")';
+      button.dataset.img=photo.url;
+      button.dataset.caption=photo.caption;
+      button.setAttribute("aria-label","Ver foto: "+photo.caption);
+      const label=document.createElement("span");
+      label.textContent=photo.caption;
+      button.append(label);
+      fragment.append(button);
+    });
+    gallery.replaceChildren(fragment);
+    document.getElementById("galleryCredit")?.remove();
+    status.textContent=photos.length===1?"1 foto de la comunidad":photos.length+" fotos de la comunidad";
+  }
+  async function loadContent(){
     if(!gallery)return;
     try{
-      const response=await fetch("https://api.github.com/repos/rjaviermachado-creator/SantafePlaya/contents/assets/gallery?ref=main",{headers:{"Accept":"application/vnd.github+json"}});
-      if(!response.ok)throw new Error("No se pudo consultar la carpeta");
-      const entries=await response.json();
-      if(!Array.isArray(entries))throw new Error("Respuesta inesperada");
-      const photos=entries.filter(file=>file.type==="file"&&/\.(?:jpe?g|png|webp)$/i.test(file.name)).sort((a,b)=>b.name.localeCompare(a.name,"es"));
-      if(!photos.length){status.textContent="Aun no hay capturas del servidor. Puedes subir la primera.";return;}
-      const fragment=document.createDocumentFragment();
-      photos.forEach(file=>{
-        const caption=file.name.replace(/\.[^.]+$/,"").replace(/^\d{4}-\d{2}-\d{2}[-_ ]?/,"").replace(/[-_]+/g," ").trim()||"Santafe Playa";
-        const url="assets/gallery/"+encodeURIComponent(file.name);
-        const button=document.createElement("button");
-        button.type="button";
-        button.style.backgroundImage='url("'+url+'")';
-        button.dataset.img=url;
-        button.dataset.caption=caption;
-        button.setAttribute("aria-label","Ver foto: "+caption);
-        const label=document.createElement("span");
-        label.textContent=caption;
-        button.append(label);
-        fragment.append(button);
-      });
-      gallery.replaceChildren(fragment);
-      document.getElementById("galleryCredit")?.remove();
-      status.textContent=photos.length===1?"1 foto de la comunidad":photos.length+" fotos de la comunidad";
+      const response=await fetch("api/health");
+      if(!response.ok)throw new Error("Modo estatico");
+      const [photosResponse,postsResponse]=await Promise.all([fetch("api/photos"),fetch("api/posts")]);
+      if(!photosResponse.ok||!postsResponse.ok)throw new Error("Datos no disponibles");
+      renderPhotos(await photosResponse.json());
+      const posts=await postsResponse.json(),section=document.getElementById("actualidad"),grid=document.getElementById("updatesGrid");
+      if(posts.length&&section&&grid){
+        section.hidden=false;
+        posts.forEach(post=>{
+          const card=document.createElement("article");
+          card.className="update-card";
+          const badge=document.createElement("small");
+          badge.textContent=post.type==="event"?"EVENTO":"NOTICIA";
+          const title=document.createElement("h3");title.textContent=post.title;
+          const desc=document.createElement("p");desc.textContent=post.description;
+          card.append(badge,title,desc);
+          if(post.date){const date=document.createElement("time");date.textContent=post.date;card.append(date);}
+          grid.append(card);
+        });
+      }
+      const adminLink=document.getElementById("adminLink");if(adminLink)adminLink.hidden=false;
+      const upload=document.getElementById("uploadPhotos");
+      if(upload){upload.href="admin.html";upload.removeAttribute("target");upload.textContent="ADMINISTRAR FOTOS ↗";}
+      const hint=document.querySelector(".gallery-upload p");
+      if(hint)hint.textContent="El equipo administrador puede subir capturas desde esta web. Las fotos se publican para toda la comunidad.";
     }catch{
-      status.textContent="Las fotos no se pudieron cargar ahora. Intentalo de nuevo mas tarde.";
+      try{
+        const response=await fetch("https://api.github.com/repos/rjaviermachado-creator/SantafePlaya/contents/assets/gallery?ref=main",{headers:{"Accept":"application/vnd.github+json"}});
+        if(!response.ok)throw new Error("Galeria no disponible");
+        const entries=await response.json();
+        const photos=entries.filter(file=>file.type==="file"&&/\.(?:jpe?g|png|webp)$/i.test(file.name)).sort((a,b)=>b.name.localeCompare(a.name,"es")).map(file=>({
+          caption:file.name.replace(/\.[^.]+$/,"").replace(/^\d{4}-\d{2}-\d{2}[-_ ]?/,"").replace(/[-_]+/g," ").trim()||"Santafe Playa",
+          url:"assets/gallery/"+encodeURIComponent(file.name)
+        }));
+        renderPhotos(photos);
+      }catch{status.textContent="La galeria no se pudo cargar ahora. Intentalo de nuevo mas tarde.";}
     }
   }
-  loadGallery();
+  loadContent();
   if(close&&dialog)close.addEventListener("click",()=>dialog.close());
   if(dialog)dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close();});
   const sections=[...document.querySelectorAll("main section[id]")];

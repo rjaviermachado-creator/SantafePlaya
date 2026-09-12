@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Administrar · Santafe Playa</title>
+  <link rel="stylesheet" href="santafe-v5.css?v=6.0.0">
+  <link rel="stylesheet" href="admin.css?v=1.0.0">
+  <script defer src="admin.js?v=1.0.0"></script>
+</head>
+<body>
+  <header class="top"><a class="brand" href="index.html#inicio"><span class="mark">SP</span><span><strong>SANTAFE <b>PLAYA</b></strong><small>ADMINISTRACIÓN</small></span></a><a class="btn dark" href="index.html">VOLVER A LA WEB</a></header>
+  <main class="wrap admin-main">
+    <p class="eyebrow">PANEL PRIVADO</p><h1>CONTENIDO DE LA CIUDAD</h1>
+    <p class="intro">Sube capturas y publica noticias o eventos. Los cambios aparecen para todos al guardar.</p>
+    <p id="notice" class="notice" role="status" aria-live="polite"></p>
+    <section id="loginArea" class="admin-card"><h2>ENTRAR</h2><form id="loginForm"><label>Contraseña de administración<input id="password" type="password" autocomplete="current-password" required></label><button class="btn primary" type="submit">ACCEDER</button></form></section>
+    <div id="dashboard" hidden>
+      <div class="admin-top"><h2>PANEL DE PUBLICACIÓN</h2><button type="button" id="logout" class="btn dark">CERRAR SESIÓN</button></div>
+      <div class="admin-columns">
+        <section class="admin-card"><h3>SUBIR FOTOGRAFÍA</h3><form id="photoForm"><label>Elige una imagen JPG, PNG o WebP (hasta 5 MB)<input id="photoFile" type="file" accept="image/jpeg,image/png,image/webp" required></label><img id="preview" class="preview" alt="Vista previa" hidden><label>Título de la imagen<input id="caption" maxlength="80" placeholder="Por ejemplo: Patrulla nocturna" required></label><button class="btn primary" type="submit">PUBLICAR FOTO</button></form></section>
+        <section class="admin-card"><h3>PUBLICAR ACTUALIDAD</h3><form id="postForm"><label>Tipo<select id="postType"><option value="news">Noticia</option><option value="event">Evento</option></select></label><label>Título<input id="postTitle" maxlength="100" required></label><label>Descripción<textarea id="postDescription" maxlength="1000" required></textarea></label><label id="dateRow" hidden>Fecha y hora del evento<input id="postDate" maxlength="40" placeholder="Sábado · 23:00"></label><button class="btn primary" type="submit">PUBLICAR</button></form></section>
+      </div>
+      <section class="admin-card"><h3>CONTENIDO PUBLICADO</h3><div id="published"></div></section>
+    </div>
+  </main>
+</body>
+</html>
